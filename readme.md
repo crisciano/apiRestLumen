@@ -101,12 +101,18 @@ php artisan make:model product
 ```
 Com esse comando é criado o model na pasta "app"
 
-O lumen diferentemente do Laravel não inicia automaticamente o Eloquent e Facades, então podemos alterar o arquivo de configuração do bootstrap na pasta "bootstrap". Antes de return podemos incluir as seguintes linhas.
+O lumen diferentemente do Laravel não inicia automaticamente o Eloquent e Facades, então podemos alterar o arquivo de configuração do bootstrap na pasta "bootstrap". Pode ser descomentado as linhas 26 e 28 onde eles se encontram.
 
 ```
 $app->withFacades();
 $app->withEloquent();
 ```
+
+Facades segundo a [documentação do Laravel](https://laravel.com/docs/5.6/facades) "Fachadas têm muitos benefícios. Eles fornecem uma sintaxe concisa e memorável que permite usar os recursos do Laravel sem lembrar nomes de classe longos que devem ser injetados ou configurados manualmente. Além disso, devido ao uso exclusivo dos métodos dinâmicos do PHP, eles são fáceis de testar."
+
+Eloquent segundo a [documentação do Laravel](https://laravel.com/docs/5.7/eloquent) e um ORM(Object Relational Mapping), ou seja um mapeamento de objeto relacional, basecamente ele abstrai toda a complexibilidade das interações com o SGBD. Ainda segundo a documentação "Cada tabela de banco de dados tem um "Modelo" correspondente que é usado para interagir com essa tabela."
+
+
 
 ## Sexto etapa
 

@@ -4,20 +4,20 @@ API Rest com Lumen, a mini distribuição do laravel para api RestFull,
 o intuito do desenvolvimento é se familiarizar com uma API para agilizar o processo
 de desenvolvimento.
 
-## Primeiros passos
+## Primeira etapa
 
 É preciso ter instalado o composer para poder criar o projeto.
 
 criar um projeto com Lumen
-`composer create-project laravel/lumen nomeProjeto`
+```composer create-project laravel/lumen nomeProjeto```
 
 para facilitar e utilizado uma library para gerar facilidades
-`composer require flipbox/lumen-generator`
+```composer require flipbox/lumen-generator```
 
 para poder rodar a app utiliza o comando
-`php -S localhost:8000 -t public`
+```php -S localhost:8000 -t public```
 
-## Segunda parte
+## Segunda etapa
 
 Configurar o banco de dados para receber os dados.
 é preciso alterar o arquivo .env, aqui estou usando no local.
@@ -28,7 +28,7 @@ DB_USERNAME=root
 DB_PASSWORD=senha5
 ```
 
-## Terceiro passo
+## Terceiro etapa
 
 Vai ser criado as rotas para a API.
 Rota para listagem, faz um GET para exibe todos os resultados.
@@ -57,47 +57,49 @@ As rotas apos ser criadar ficam dessa forma:
     });
 ```
 
-## Quarto passo
+## Quarto etapa
 
 Após estar tudo ok com as rodas, banco vamos para criar a table no banco utilizando o generate do
 Laravel. O "migration" segundo a documentação do Laravel é um controle de versão para banco de dados
 que é bem útil para quem trabalha com back. Ele cria um arquivo na pasta "database/migrations", esse arquivo é um arquivo com arquitetura OO(Orientação a Objetos), onde podemos basicamente criar nossa classe que será gerada no banco.
 
-`php artisan make:migration create_products_table`
+```php artisan make:migration create_products_table```
 
 Nesse arquivo vamos acrescentar alguns campos que iremos utilizar, name, price e description do produto.
 
-`
+```
     $table->string('name');
     $table->integer('price');
     $table->longText('description');
-`
+```
 
 Após ser feito as alterações nescessárias iremos utilizar o comando do Laravel para gerar a tabela.
 
-`php artisan migrate`
+```php artisan migrate```
 
-## Quinto passo
+## Quinto etapa
 
 Agora vamos criar o "models" e "controllers" da nossa aplicação. Para isso vamos utilizar o generate do Laravel para nos facilitar.
 
-`php artisan make:controller productController`
+```php artisan make:controller productController```
 Com esse é criado nosso controller na pasta "app/Http/Controllers", que é a pasta indicada pelo Framework para ser criada. Em sequida criar o model.
 
-`php artisan make:model product`
+```php artisan make:model product```
 Com esse comando é criado o model na pasta "app"
 
 O lumen diferentemente do Laravel não inicia automaticamente o Eloquent e Facades, então podemos alterar o arquivo de configuração do bootstrap na pasta "bootstrap". Antes de return podemos incluir as seguintes linhas.
 
-`$app->withFacades();
-$app->withEloquent();`
+```
+$app->withFacades();
+$app->withEloquent();
+```
 
-## Sexto passo
+## Sexto etapa
 
 Baseado nas rotas que criamos preveamente, iremos alterar nosso controller para tratar nossas functions.
 Primeiramente vamos utilizar o model, vamos incluir a seguinte linha: 
 
-`use App\Product;`
+```use App\Product;```
 
 após o namespace.
 Dentro da class ProductController iremos incluir nossas functions.
@@ -155,10 +157,10 @@ E por fim mais não menos importante a function para delete.
     }
 ```
 
-## Ultimo passo e testar
+## Ultimo etapa
 
 Nesse ultima etapa iremos testar nossa API para verificar se tudo está funcionando como planejado. Testaremos inserção, edição e exclusão, para isso iremos utilizar o Postman.
-Postman é uma aplicativo desenvolvido para testar API's, de forma fácil é simples. Pode ser baixada no seguinte site: https://www.getpostman.com/
+Postman é uma aplicativo desenvolvido para testar API's, de forma fácil é simples. Pode ser baixada no seguinte site: [postman](https://www.getpostman.com/)
 
 vamos testar cada rota criado na nossa API.
 http://localhost:8000/api/v1/products
@@ -171,7 +173,8 @@ http://localhost:8000/api/v1/product/1
 para deletar o produto específico, nesse caso id 1.
 
 ## Lumen generator
-https://packagist.org/packages/flipbox/lumen-generator
+
+[documentação Lumen generator](https://packagist.org/packages/flipbox/lumen-generator)
 
 composer require flipbox/lumen-generator
 

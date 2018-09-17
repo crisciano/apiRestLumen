@@ -22,11 +22,11 @@ para poder rodar a app utiliza o comando
 Configurar o banco de dados para receber os dados.
 é preciso alterar o arquivo .env, aqui estou usando no local.
 criar a base e alterar o dados no arquivo.
-`
+```
 DB_DATABASE=apiRestLumen
 DB_USERNAME=root
 DB_PASSWORD=senha5
-`
+```
 
 ## Terceiro passo
 
@@ -46,7 +46,7 @@ O arquivo para ser alterado fica na pasta "routes/web.php". Por segurança foi f
 um agrupamento com prefixo da api.
 
 As rotas apos ser criadar ficam dessa forma:
-`
+```
     $router->group(['prefix'=>'api/v1'], function() use($router){
         $router->get('/products', 'ProductController@index');
         $router->post('/product/add', 'ProductController@create');
@@ -55,7 +55,7 @@ As rotas apos ser criadar ficam dessa forma:
         $router->delete('/product/{id}', 'ProductController@destroy');
         // $router->get('/', function () use ($router) { return $router->app->version(); });
     });
-`
+```
 
 ## Quarto passo
 
@@ -110,7 +110,8 @@ Primeiramente a listagem. Que pega todos os produtos e lista em formato JSON.
 ```
 
 Na sequencia vamos incluir a function de add novo produto.
-`   public function create(Request $request){
+```  
+    public function create(Request $request){
         $product = new Product;
         $product->name= $request->name;
         $product->price = $request->price;
@@ -119,17 +120,19 @@ Na sequencia vamos incluir a function de add novo produto.
         $product->save();
         return response()->json('product inserido com sucesso');
     }
-`
+```
 
 Vamos incluir a function para exibir uma produto expecífico.
-`   public function show($id){
+```   
+    public function show($id){
         $product = Product::find($id);
         return response()->json($product);
     }
-`
+```
 
 Function de update do produto.
-`   public function update(Request $request, $id){ 
+``` 
+    public function update(Request $request, $id){ 
         $product= Product::find($id);
         
         $product->name = $request->input('name');
@@ -139,18 +142,18 @@ Function de update do produto.
         $product->save();
         return response()->json($product);
     }
-`
+```
 
 E por fim mais não menos importante a function para delete.
 
-`
+```
     public function destroy($id){
         $product = Product::find($id);
 
         $product->delete();
         return response()->json('product removed successfully');
     }
-`
+```
 
 ## Ultimo passo e testar
 

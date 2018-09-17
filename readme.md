@@ -1,24 +1,24 @@
 # API RestFull Lumen
 
-API Rest com Lumen, a mini distribuição do laravel para api RestFull,
+API Rest com Lumen, a mini distribuição do Laravel para api RestFull,
 o intuito do desenvolvimento é se familiarizar com uma API para agilizar o processo
 de desenvolvimento.
 
 ## Primeira etapa
 
-É preciso ter instalado o composer para poder criar o projeto.
+É preciso ter previamente instalado o composer para poder criar o projeto com Lumen, ou Laravel.
 
-criar um projeto com Lumen
+criar um projeto com Lumen:
 ```
 composer create-project laravel/lumen nomeProjeto
 ```
 
-para facilitar e utilizado uma library para gerar facilidades
+para facilitar e utilizado uma library para gerar facilidades:
 ```
 composer require flipbox/lumen-generator
 ```
 
-para poder rodar a app utiliza o comando
+para poder rodar a app utiliza o comando:
 ```
 php -S localhost:8000 -t public
 ```
@@ -66,7 +66,7 @@ As rotas apos ser criadar ficam dessa forma:
 ## Quarto etapa
 
 Após estar tudo ok com as rodas, banco vamos para criar a table no banco utilizando o generate do
-Laravel. O "migration" segundo a documentação do Laravel é um controle de versão para banco de dados
+Lumen. O "migration" segundo a documentação do Laravel é um controle de versão para banco de dados
 que é bem útil para quem trabalha com back. Ele cria um arquivo na pasta "database/migrations", esse arquivo é um arquivo com arquitetura OO(Orientação a Objetos), onde podemos basicamente criar nossa classe que será gerada no banco.
 
 ```
@@ -217,3 +217,10 @@ generator model
 ```
 php artisan make:model nameModel
 ```
+
+## Refenrências
+
+[Lumen](https://lumen.laravel.com/)
+[Laravel](https://laravel.com/)
+[Lumen generator](https://packagist.org/packages/flipbox/lumen-generator)
+[Postman](https://www.getpostman.com/)

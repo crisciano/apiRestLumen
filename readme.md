@@ -22,10 +22,11 @@ para poder rodar a app utiliza o comando
 Configurar o banco de dados para receber os dados.
 é preciso alterar o arquivo .env, aqui estou usando no local.
 criar a base e alterar o dados no arquivo.
-
+`
 DB_DATABASE=apiRestLumen
 DB_USERNAME=root
 DB_PASSWORD=senha5
+`
 
 ## Terceiro passo
 
@@ -45,14 +46,16 @@ O arquivo para ser alterado fica na pasta "routes/web.php". Por segurança foi f
 um agrupamento com prefixo da api.
 
 As rotas apos ser criadar ficam dessa forma:
-`$router->group(['prefix'=>'api/v1'], function() use($router){
-    $router->get('/products', 'ProductController@index');
-    $router->post('/product/add', 'ProductController@create');
-    $router->get('/product/{id}', 'ProductController@show');
-    $router->put('/product/{id}', 'ProductController@update');
-    $router->delete('/product/{id}', 'ProductController@destroy');
-    // $router->get('/', function () use ($router) { return $router->app->version(); });
-});`
+`
+    $router->group(['prefix'=>'api/v1'], function() use($router){
+        $router->get('/products', 'ProductController@index');
+        $router->post('/product/add', 'ProductController@create');
+        $router->get('/product/{id}', 'ProductController@show');
+        $router->put('/product/{id}', 'ProductController@update');
+        $router->delete('/product/{id}', 'ProductController@destroy');
+        // $router->get('/', function () use ($router) { return $router->app->version(); });
+    });
+`
 
 ## Quarto passo
 
@@ -64,9 +67,11 @@ que é bem útil para quem trabalha com back. Ele cria um arquivo na pasta "data
 
 Nesse arquivo vamos acrescentar alguns campos que iremos utilizar, name, price e description do produto.
 
-`$table->string('name');
-$table->integer('price');
-$table->longText('description');`
+`
+    $table->string('name');
+    $table->integer('price');
+    $table->longText('description');
+`
 
 Após ser feito as alterações nescessárias iremos utilizar o comando do Laravel para gerar a tabela.
 

@@ -102,11 +102,12 @@ Primeiramente vamos utilizar o model, vamos incluir a seguinte linha:
 após o namespace.
 Dentro da class ProductController iremos incluir nossas functions.
 Primeiramente a listagem. Que pega todos os produtos e lista em formato JSON.
-`   public function index(){
+```
+    public function index(){
         $products = Product::all();
         return response()->json($products);
     }
-`
+```
 
 Na sequencia vamos incluir a function de add novo produto.
 `   public function create(Request $request){

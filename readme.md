@@ -9,13 +9,19 @@ de desenvolvimento.
 É preciso ter instalado o composer para poder criar o projeto.
 
 criar um projeto com Lumen
-```composer create-project laravel/lumen nomeProjeto```
+```
+composer create-project laravel/lumen nomeProjeto
+```
 
 para facilitar e utilizado uma library para gerar facilidades
-```composer require flipbox/lumen-generator```
+```
+composer require flipbox/lumen-generator
+```
 
 para poder rodar a app utiliza o comando
-```php -S localhost:8000 -t public```
+```
+php -S localhost:8000 -t public
+```
 
 ## Segunda etapa
 
@@ -63,7 +69,9 @@ Após estar tudo ok com as rodas, banco vamos para criar a table no banco utiliz
 Laravel. O "migration" segundo a documentação do Laravel é um controle de versão para banco de dados
 que é bem útil para quem trabalha com back. Ele cria um arquivo na pasta "database/migrations", esse arquivo é um arquivo com arquitetura OO(Orientação a Objetos), onde podemos basicamente criar nossa classe que será gerada no banco.
 
-```php artisan make:migration create_products_table```
+```
+php artisan make:migration create_products_table
+```
 
 Nesse arquivo vamos acrescentar alguns campos que iremos utilizar, name, price e description do produto.
 
@@ -75,16 +83,22 @@ Nesse arquivo vamos acrescentar alguns campos que iremos utilizar, name, price e
 
 Após ser feito as alterações nescessárias iremos utilizar o comando do Laravel para gerar a tabela.
 
-```php artisan migrate```
+```
+php artisan migrate
+```
 
 ## Quinto etapa
 
 Agora vamos criar o "models" e "controllers" da nossa aplicação. Para isso vamos utilizar o generate do Laravel para nos facilitar.
 
-```php artisan make:controller productController```
+```
+php artisan make:controller productController
+```
 Com esse é criado nosso controller na pasta "app/Http/Controllers", que é a pasta indicada pelo Framework para ser criada. Em sequida criar o model.
 
-```php artisan make:model product```
+```
+php artisan make:model product
+```
 Com esse comando é criado o model na pasta "app"
 
 O lumen diferentemente do Laravel não inicia automaticamente o Eloquent e Facades, então podemos alterar o arquivo de configuração do bootstrap na pasta "bootstrap". Antes de return podemos incluir as seguintes linhas.
@@ -99,7 +113,9 @@ $app->withEloquent();
 Baseado nas rotas que criamos preveamente, iremos alterar nosso controller para tratar nossas functions.
 Primeiramente vamos utilizar o model, vamos incluir a seguinte linha: 
 
-```use App\Product;```
+```
+use App\Product;
+```
 
 após o namespace.
 Dentro da class ProductController iremos incluir nossas functions.
@@ -174,9 +190,11 @@ para deletar o produto específico, nesse caso id 1.
 
 ## Lumen generator
 
-[documentação Lumen generator](https://packagist.org/packages/flipbox/lumen-generator)
+[Documentação Lumen generator](https://packagist.org/packages/flipbox/lumen-generator)
 
+```
 composer require flipbox/lumen-generator
+```
 
 key:generate      Set the application key
 
@@ -196,4 +214,6 @@ make:test         Create a new test class
 
 ### Example
 generator model
+```
 php artisan make:model nameModel
+```

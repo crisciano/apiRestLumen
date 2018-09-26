@@ -13,4 +13,7 @@
         /** categorias  */
         $router->get('/categories', 'CategoryController@index');
         $router->post('/category/add', 'CategoryController@create');
+        $router->get('/category/{id}', 'CategoryController@show');
+        $router->put('/category/{id}', 'CategoryController@update');
+        $router->delete('/category/{id}', 'CategoryController@destroy');
     });

@@ -7,25 +7,21 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function index(){
         $products = Product::all();
         return response()->json($products);
     }
 
     public function create(Request $request){
-        // return $request;
+        
         $product = new Product;
         $product->name= $request->name;
         $product->price = $request->price;
         $product->description= $request->description;
        
         $product->save();
-        return response()->json('product inserido com sucesso');
+        return response()->json('Produto inserido com sucesso.');
         // return response()->json($product);
     }
 
@@ -37,9 +33,10 @@ class ProductController extends Controller
     public function update(Request $request, $id){ 
         $product= Product::find($id);
         
-        $product->name = $request->input('name');
-        $product->price = $request->input('price');
-        $product->description = $request->input('description');
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
 
         $product->save();
         return response()->json($product);
@@ -48,6 +45,6 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         $product->delete();
-        return response()->json('product removed successfully');
+        return response()->json('Produto removido com sucesso.');
     }
 }

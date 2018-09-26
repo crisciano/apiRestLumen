@@ -23,6 +23,12 @@ para poder rodar a app utiliza o comando:
 php -S localhost:8000 -t public
 ```
 
+ou
+
+```
+php artisan serve
+```
+
 ## Segunda etapa
 
 Configurar o banco de dados para receber os dados.

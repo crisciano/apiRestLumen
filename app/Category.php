@@ -8,6 +8,6 @@ class Category extends Model
 {
     /** uma categoria tem varios produtos ==> hasMany <== **/ 
     public function produtos(){
-        $this->hasMany('App\Product');
+        return $this->hasMany('App\Product');
     }
 }

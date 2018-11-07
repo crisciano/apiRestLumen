@@ -46,6 +46,12 @@ DB_USERNAME=root
 DB_PASSWORD=senha5
 ```
 
+caso tenha um erro "No application encryption key has been specified."
+```
+php artisan key:generate
+```
+
+
 ## Terceiro etapa
 
 Vai ser criado as rotas para a API.

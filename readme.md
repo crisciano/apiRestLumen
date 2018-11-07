@@ -29,6 +29,12 @@ ou
 php artisan serve
 ```
 
+caso tenha um erro no autoload.php, line 24 do index.php:
+```
+composer update
+```
+
+
 ## Segunda etapa
 
 Configurar o banco de dados para receber os dados.
